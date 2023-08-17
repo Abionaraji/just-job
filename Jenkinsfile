@@ -17,7 +17,7 @@ pipeline{
         nexusip = '54.160.87.41'
         nexusport = '8081'
         nexusgroup = 'Vpro-maven-group'
-        nexuslogin = 'nexuslogin'
+        nexuslogin = 'nexus-jenkins'
         SONAR_SCANNER = 'SonarQube Scanner'
         SONAR_SERVER = 'SonarQube Server'
     }
