@@ -6,7 +6,7 @@ pipeline{
     agent any
     tools {
         jdk 'JDK'
-        maven 'maven'
+        maven 'Maven'
     }
     environment {
         SNAPREPO = 'Vpro-snapshots'
