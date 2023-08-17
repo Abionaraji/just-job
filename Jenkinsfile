@@ -1,7 +1,3 @@
-def COLOR_MAP = [
-    'SUCCESS':'good',
-    'FAILURE':'danger'
-]
 pipeline{
     agent any
     tools {
@@ -42,18 +38,6 @@ pipeline{
             steps {
                 sh ' mvn -s settings.xml test'
             }
-            post{
-                success {
-                    slackSend channel: '#ci-project',
-                    color:'good',
-                    message: "TEST IS SUCCESS"
-                }
-                failure {
-                    slackSend channel: '#ci-project',
-                    color: 'danger',
-                    message: "TEST IS FAILED"
-                }
-            }
         }
         stage ('UNIT TEST') {
             steps {
@@ -69,14 +53,6 @@ pipeline{
             steps {
                 sh 'mvn checkstyle:checkstyle'
             }
-        }
-    }
-    post {
-        always{
-            echo 'slack notifications'
-            slackSend channel: '#ci-project',
-            color: COLOR_MAP[currentBuild.currentResult],
-            message: "*${currentBuild.currentResult}:* Job name ${env.JOB_NAME} build ${env.BUILD_NUMBER} time ${env.BUILD_TIMESTAMP} \n More info at: ${BUILD_URL}"
         }
     }
 }
