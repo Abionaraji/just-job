@@ -49,24 +49,5 @@ pipeline{
                 sh 'mvn checkstyle:checkstyle'
             }
         }
-        stage('UPLOAD ARTIFACT TO NEXUS'){
-            steps{
-                nexusArtifactUploader{
-                    nexusVersion: "nexus3",
-                    protocol: "${NEXUS_IP}",
-                    nexusUrl:"${NEXUS_IP}:${NEXUS_PORT}",
-                    groupId: "QA",
-                    version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-                    repository: "${RELEASE_REPO}",
-                    credentialsld: "${NEXUS_LOGIN}",
-                    artifacts[
-                        [artifact:'vproapp',
-                        classifier:"",
-                        file:'target/vprofile-v2.war',
-                        type:'war']
-                    ]
-                }
-            }
-        }
     }
 }
