@@ -36,7 +36,7 @@ pipeline{
         }
         stage ('TEST') {
             steps {
-                sh ' mvn -s settings.xml test'
+                sh ' mvn test'
             }
         }
         stage ('UNIT TEST') {
