@@ -25,7 +25,7 @@ pipeline{
         }
         stage ('BUILD THE APPLICATION') {
             steps {
-                sh 'mvn -s settings.xml install -DskipTests' 
+                sh 'mvn -s settings.xml install -DskipUnitTests' 
             }
             post {
                 success{
