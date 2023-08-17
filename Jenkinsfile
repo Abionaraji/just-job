@@ -14,7 +14,7 @@ pipeline{
         nexuspassword = 'admin'
         releaserepo = 'vpro-release'
         centralrepo = 'Vpro-mavan-central'
-        nexusip = '172.31.30.167'
+        nexusip = '54.160.87.41'
         nexusport = '8081'
         nexusgroup = 'Vpro-maven-group'
         nexuslogin = 'nexuslogin'
@@ -24,7 +24,7 @@ pipeline{
     stages {
         stage ('PULL THE APPLICATION FROM GITHUB') {
             steps {
-                git branch: 'ci-jenkins', url: 'https://github.com/afolagbe/personal.git'
+                git branch: 'ci-jenkins', url: 'https://github.com/Abionaraji/just-job.git'
             }
         }
         stage('UPDATE APPLICATION PROPERTIES'){
