@@ -52,10 +52,10 @@ pipeline{
         stage('UPLOAD ARTIFACT TO NEXUS'){
             steps{
                 nexusArtifactUploader{
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
+                    nexusVersion: "nexus3",
+                    protocol: "${NEXUS_IP}",
                     nexusUrl:"${NEXUS_IP}:${NEXUS_PORT}",
-                    groupId: 'QA',
+                    groupId: "QA",
                     version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                     repository: "${RELEASE_REPO}",
                     credentialsld: "${NEXUS_LOGIN}",
