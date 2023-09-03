@@ -1,4 +1,7 @@
-pipeline{
+.0.3
+.0p12
+
++0ipeline{
     agent any
     tools {
         jdk 'JDK'
@@ -15,7 +18,7 @@ pipeline{
     stages {
         stage ('PULL THE APPLICATION FROM GITHUB') {
             steps {
-                git branch: 'ci-jenkins', url: 'https://github.com/Abionaraji/just-job.git'
+                 git branch: 'ci-jenkins', url: 'https://github.com/Abionaraji/just-job.git'
             }
         }
         stage ('BUILD THE APPLICATION') {
@@ -51,7 +54,7 @@ pipeline{
         }
         stage('sonar'){
             steps{
-                withSonarQubeEnv(credentialsId: 'sonar-jenkins', credentialaName: SonarQube) {
+                withSonarQubeEnv(credentialsId: 'sonar-jenkins', credentialaName: 'SonarQube') {
                     sh 'mvn sonar:sonar'
                 }
             }
