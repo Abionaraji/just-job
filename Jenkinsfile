@@ -49,5 +49,12 @@ pipeline{
                 sh 'mvn checkstyle:checkstyle'
             }
         }
+        stage('sonar'){
+            steps{
+                withSonarQubeEnv(credentialsId: 'sonar-jenkins', credentialaName: SonarQube) {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
     }
 }
