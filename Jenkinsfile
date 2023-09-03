@@ -8,7 +8,7 @@ pipeline{
         NEXUSUSER = 'admin'
         nexuspassword = 'admin'
         releaserepo = 'vpro-release'
-        nexusip = '54.160.87.41'
+        nexusip = '100.26.11.59'
         nexusport = '8081'
         nexuslogin = 'nexus-jenkins'
     }
