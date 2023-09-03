@@ -49,11 +49,16 @@ pipeline{
                 sh 'mvn checkstyle:checkstyle'
             }
         }
-        stage('sonar'){
+        stage('Sonar'){
             steps{
                 withSonarQubeEnv(credentialsId: 'sonar-jenkins', installationName: 'SonarQube') {
                     sh 'mvn sonar:sonar'
                 }
+            }
+        }
+        stage('Sonar Gate'){
+            steps{
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonar-jenkins'
             }
         }
     }
