@@ -58,7 +58,7 @@ pipeline{
         }
         stage('Sonar Gate'){
             steps{
-                timeout (time:4, unit: 'MINUTES'){
+                timeout (time: 4, unit: 'MINUTES'){
                     waitForQualityGate abortPipeline: true, credentialsId: 'sonar-jenkins'
                 }
             }
