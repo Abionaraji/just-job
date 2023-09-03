@@ -7,7 +7,7 @@ pipeline{
     environment {
         NEXUSUSER = 'admin'
         nexuspassword = 'admin'
-        releaserepo = 'vpro-release'
+        releaserepo = 'vpro-maven'
         nexusip = '100.26.11.59'
         nexusport = '8081'
         nexuslogin = 'nexus-jenkins'
@@ -65,7 +65,7 @@ pipeline{
         }
         stage('Upload War'){
             steps{
-                nexusArtifactUploader artifacts: [[artifactId: 'vprofile', classifier: '', file: 'target/vprofile-v2.war', type: 'war']], credentialsId: 'nexus-jenkins', groupId: 'QA', nexusUrl: 'http://100.26.11.59:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'vpro-maven', version: 'v2'
+                nexusArtifactUploader artifacts: [[artifactId: 'vprofile', classifier: '', file: 'target/vprofile-v2.war', type: 'war']], credentialsId: 'nexus-jenkins', groupId: 'com.visualpathit', nexusUrl: '100.26.11.59:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'vpro-maven', version: 'v2'
             }
         }
     }
