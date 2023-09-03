@@ -1,7 +1,4 @@
-.0.3
-.0p12
-
-+0ipeline{
+pipeline{
     agent any
     tools {
         jdk 'JDK'
